@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html> 
+<head> 
+<title>My first CouchDB App</title> 
+<meta charset="UTF-8">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="description" content="My first CouchDB App" />
+<meta name="author" content="Ikaros Kappler" />
+<meta name="keywords" content="couchDB" />
+<link rel="stylesheet" type="text/css" media="screen" href="style.css" />
+
+
+<script language="Javascript" type="text/javascript" src="main.js"></script>
+<script language="Javascript" type="text/javascript" src="jquery-1.11.1.min.js"></script>
+<script language="Javascript" type="text/javascript" src="jquery.couch.js"></script>
+
+</head> 
+
+
+<body> 
+
+<button onclick="getServerInfo();">getServerInfo()</button><br/>
+<button onclick="allDBs();">allDBs()</button><br/>
+<button onclick="signup();">signup()</button><br/>
+<button onclick="login();">login()</button><br/>
+<button onclick="logout();">logout()</button><br/>
+
+
+</body>
+</html>
