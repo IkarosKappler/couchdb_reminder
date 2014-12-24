@@ -44,6 +44,7 @@ function memotext_blurred() {
 function init_myCouch() {
     // Configure the API URL
     $.couch.urlPrefix = "http://127.0.0.1:5984";
+    //$.couch.urlPrefox = "https://ikaros.iriscouch.com";
     //window.alert( $.couch.urlPrefix );
 }
 
@@ -94,7 +95,8 @@ function allDBs() {
     // GET http://localhost:5984/_all_dbs
     $.couch.allDbs({
 	success: function(data) {
-            window.alert( JSON.stringify(data) );
+            //window.alert( JSON.stringify(data) );
+	    setStatus( "All DBs: " + JSON.stringify(data) );
 	}
     });
 }
@@ -165,7 +167,9 @@ function storeMemo() {
     // ...
     // window.alert( "Storing memo ... " );
 
-    var doc = { conent: text };
+    var doc = { conent: text,
+		date_created: createHumanReadableTimestamp()
+	      };
     $.couch.db(dbName).saveDoc(doc, {
 	success: function(data) {
 	    //window.alert( "Success" );
@@ -190,12 +194,13 @@ function listMemos() {
 	    //$("div#memos").html( JSON.stringify(data) );
 
 	    var result = "";
+	    //for( i = data.rows.length-1; i >= 0; i-- ) {
 	    for( i = 0; i < data.rows.length; i++ ) {
 		var row = data.rows[i];
 		$.couch.db( dbName ).openDoc( row.id,
 					      { success: function(data) {
 						  console.log(data);
-						  displayData( data.conent + "<br/>\n",
+						  displayData( data.date_created + ": " + data.conent + "<br/>\n",
 							          // + " " + JSON.stringify(data) + "<br/>\n", 
 							       true ); // append
 					      },

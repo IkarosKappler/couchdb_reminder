@@ -1,0 +1,19 @@
+Enabling CORS
+
+To enable CORS support, you need to set the option enable_cors = true in the [httpd] section of local.ini, and [cors] section with origins = *. Note that by default, no origins are accepted, you must either use a wildcard or whitelist.
+
+[httpd]
+enable_cors = true
+
+[cors]
+origins = *
+
+Tightening Access
+
+Restricting by Protocol, Host and optional Port
+
+[cors]
+; List of origins, separated by a comma (protocol, host, port)
+; refer to http://tools.ietf.org/html/rfc6454 for specification
+origins = http://home.muse.net.nz:8000, https://localhost, http://www.number10.gov.uk:80
+

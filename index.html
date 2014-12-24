@@ -1,34 +1,38 @@
 <!DOCTYPE html>
-<html> 
+<html lang="en"> 
 <head> 
-<title>My first CouchDB App</title> 
+<title>My first CouchDB Memo App</title> 
 <meta charset="UTF-8">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="description" content="My first CouchDB App" />
 <meta name="author" content="Ikaros Kappler" />
 <meta name="keywords" content="couchDB" />
 <link rel="stylesheet" type="text/css" media="screen" href="style.css" />
-
+<link rel="stylesheet" type="text/css" href="bootstrap/dist/css/bootstrap.min.css" />
 
 <script language="Javascript" type="text/javascript" src="jquery-1.11.1.min.js"></script>
 <script language="Javascript" type="text/javascript" src="jquery.couch.js"></script>
 
+<script language="Javascript" type="text/javascript" src="function.createHumanReadableTimestamp.js"></script>
 
 </head> 
 
 
 <body> 
-
-<textarea id="memo_text" rows="12" cols="50" onfocus="memotext_focussed();" onblur="memotext_blurred();" onload="setInitialMemoText();"></textarea><br/>
-<button onclick="storeMemo();">Store Memo</button><br/>
-<button onclick="listMemos();">List Memos</button><br/>
-<button onclick="getServerInfo();">getServerInfo()</button><br/>
-<button onclick="allDBs();">allDBs()</button><br/>
-<!-- <button onclick="signup();">signup()</button><br/> -->
-<button onclick="login();">login()</button><br/>
-<button onclick="logout();">logout()</button><br/>
-
-<div id="status" style="background-color: #e8e8e8; font-family: Monospace;">$status</div>
+  <div style="width: 500px;">
+    <textarea class="form-control" id="memo_text" rows="8" cols="30" onfocus="memotext_focussed();" onblur="memotext_blurred();" onload="setInitialMemoText();"></textarea><br/>
+    
+    <div style="margin-left: 100px;">
+      <button class="mybtn btn btn-default" onclick="storeMemo();">Store Memo</button><br/>
+      <button class="mybtn btn btn-default" onclick="listMemos();">List Memos</button><br/>
+      <button class="mybtn btn btn-default" onclick="getServerInfo();">getServerInfo()</button><br/>
+      <button class="mybtn btn btn-default" onclick="allDBs();">allDBs()</button><br/>
+      <!-- <button onclick="signup();">signup()</button><br/> -->
+      <button class="mybtn btn btn-default" onclick="login();">login()</button><br/>
+      <button class="mybtn btn btn-default" onclick="logout();">logout()</button><br/>
+    </div>
+  </div>
+  <div id="status" style="background-color: #e8e8e8; font-family: Monospace;">$status</div>
 
 Memos:
 <div id="memos" style="background-color: #e8e8e8; font-family: Monospace;"></div>
